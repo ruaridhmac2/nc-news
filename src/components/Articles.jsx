@@ -15,9 +15,9 @@ function Articles() {
       });
   }, [topic_slug]);
   return (
-    <section className="article-list">
+    <section>
       <h2>Articles</h2>
-      <ul>
+      <ul className="article-list">
         {articles.map((article) => {
           return (
             <div key={article.article_id} className="article">

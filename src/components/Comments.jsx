@@ -1,10 +1,10 @@
 import { getComments } from "../utils/api";
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-function Comments() {
+function Comments({ comments, setComments }) {
   const { article_id } = useParams();
-  const [comments, setComments] = useState([]);
+
   useEffect(() => {
     getComments(article_id)
       .then((res) => {
@@ -13,12 +13,11 @@ function Comments() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [comments]);
 
   return (
-    <section className="comment-list">
-      <h2>Comments</h2>
-      <ul>
+    <section>
+      <ul className="comment-list">
         {comments.map((comment) => {
           return (
             <div key={comment.comment_id} className="comment">

@@ -1,6 +1,6 @@
 import { getSingleArticle } from "../utils/api";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function SingleArticle() {
   const [article, setArticle] = useState([]);

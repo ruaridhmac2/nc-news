@@ -25,3 +25,9 @@ export const getComments = async (article_id) => {
   const { data } = await newsApi.get(path);
   return data.comments;
 };
+
+export const addComment = async (article_id, commentData) => {
+  let path = `/articles/${article_id}/comments`;
+  const { data } = await newsApi.post(path, commentData);
+  return data.newComment;
+};
