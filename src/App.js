@@ -9,7 +9,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   const [comments, setComments] = useState([]);
-
+  console.log("hello from app");
   return (
     <BrowserRouter>
       <div className="App">
@@ -21,16 +21,14 @@ function App() {
           <Route exact path="/">
             <Articles />
           </Route>
-        </Switch>
-        <Switch>
+
           <Route exact path="/topics/:topic_slug">
             <Articles />
           </Route>
-        </Switch>
-        <Switch>
+
           <Route exact path="/articles/:article_id">
             <SingleArticle />
-            <AddComment setComments={setComments} />
+            <AddComment setComments={setComments} comments={comments} />
             <Comments setComments={setComments} comments={comments} />
           </Route>
         </Switch>

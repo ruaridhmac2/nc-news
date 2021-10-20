@@ -1,26 +1,30 @@
 import { addComment } from "../utils/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-function AddComment({ setComments }) {
+function AddComment({ comments, setComments }) {
   const { article_id } = useParams();
   const [newCommentTemp, setNewCommentTemp] = useState({});
   const [newComment, setNewComment] = useState({});
-  useEffect(() => {
-    if (newComment.body) {
-      addComment(article_id, newComment)
-        .then((res) => {
-          console.log(res);
-          setComments([]);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [newComment]);
 
   function handleSubmit(e) {
     e.preventDefault();
     setNewComment(newCommentTemp);
+
+    if (newComment.body) {
+      const commentsBefore = [...comments];
+      setComments((currentComments) => {
+        const newComments = [...currentComments];
+        newComment["created_at"] = "now";
+        newComments.unshift(newComment);
+        return newComments;
+      });
+
+      addComment(article_id, newComment)
+        .then((res) => {})
+        .catch((err) => {
+          setComments(commentsBefore);
+        });
+    }
   }
 
   return (
@@ -57,8 +61,6 @@ function AddComment({ setComments }) {
             }}
             required
           ></textarea>
-
-          <button id="comment_submit" type="submit" hidden="true"></button>
         </div>
       </form>
     </section>

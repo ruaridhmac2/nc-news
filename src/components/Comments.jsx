@@ -13,14 +13,14 @@ function Comments({ comments, setComments }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [comments]);
+  }, []);
 
   return (
     <section>
       <ul className="comment-list">
         {comments.map((comment) => {
           return (
-            <div key={comment.comment_id} className="comment">
+            <div key={comment.created_at + comment.author} className="comment">
               <p>{comment.author}</p>
               <p>{comment.created_at}</p>
               <p>{comment.body}</p>

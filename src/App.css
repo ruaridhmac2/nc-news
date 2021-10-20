@@ -52,13 +52,6 @@ h1 {
   padding: 0;
 }
 
-.comment-list {
-  margin: 0px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 90vw;
-}
-
 .add-comment-form {
   display: grid;
   margin: 50px;
@@ -91,12 +84,17 @@ h1 {
 .article-body {
   text-align: left;
 }
-
+.comment-list {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+}
 .comment {
   /* // layout */
   position: relative;
-  max-width: 40vw;
-
+  max-width: 20vw;
+  margin: 10px;
   /* // looks */
   background-color: #fff;
   padding: 1.125em 1.5em;

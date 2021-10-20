@@ -28,6 +28,16 @@ export const getComments = async (article_id) => {
 
 export const addComment = async (article_id, commentData) => {
   let path = `/articles/${article_id}/comments`;
-  const { data } = await newsApi.post(path, commentData);
+  console.log(path);
+  const { data } = await newsApi.post(path, {
+    author: commentData.author,
+    body: commentData.body,
+  });
   return data.newComment;
+};
+
+export const incArticleVotes = async (article_id) => {
+  let path = `/articles/${article_id}`;
+  const { data } = await newsApi.patch(path, { inc_votes: 1 });
+  return data.updatedArticle.votes;
 };
