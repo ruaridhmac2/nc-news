@@ -16,7 +16,11 @@ function Articles() {
   }, [topic_slug]);
   return (
     <section>
-      <h2>Articles</h2>
+      {topic_slug ? (
+        <h2>Articles relating to {topic_slug}</h2>
+      ) : (
+        <h2>All articles</h2>
+      )}
       <ul className="article-list">
         {articles.map((article) => {
           return (

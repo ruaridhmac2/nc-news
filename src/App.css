@@ -3,18 +3,31 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 100%;
   align-items: center;
+  color: black;
 }
 h1 {
   font-size: 50px;
   text-align: left;
-  background-color: aqua;
   padding-left: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+h1 a {
+  text-decoration: none;
+  color: white;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+}
+#login_section {
+  padding: 20px;
+}
 .App-header {
   background-color: pink;
+
   min-height: 30vh;
   display: flex;
   flex-direction: column;
@@ -31,11 +44,17 @@ h1 {
   margin-top: 10px;
   margin-bottom: 20px;
   text-decoration: none;
-  background-color: aqua;
+  color: white;
 }
-
 .nav-bar a {
   text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.nav-bar:hover {
+  color: black;
 }
 
 .article {
@@ -57,12 +76,15 @@ h1 {
   margin: 50px;
   justify-content: center;
 }
+input,
+button {
+  border-radius: 5px;
+}
 #comment_input {
   padding: 2px;
   margin-top: 10px;
   width: 50vw;
   height: 10vw;
-  border-radius: 10px;
   border-color: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
   border-width: thin;
   vertical-align: top;
@@ -71,7 +93,6 @@ h1 {
 #author_input {
   width: 20vw;
   justify-content: center;
-  border-radius: 10px;
   border-color: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
   border-width: thin;
   vertical-align: top;
@@ -118,4 +139,22 @@ h1 {
   /* // looks */
   border-bottom-color: #fff;
   filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));
+}
+
+@keyframes blackWhite {
+  0% {
+    background-color: rgba(0, 82, 235, 0.92);
+  }
+  25% {
+    background-color: rgba(0, 60, 171, 0.67);
+  }
+  50% {
+    background-color: rgba(0, 37, 107, 0.42);
+  }
+  75% {
+    background-color: rgba(0, 87, 247, 0.97);
+  }
+  100% {
+    background-color: rgba(0, 73, 209, 0.82);
+  }
 }

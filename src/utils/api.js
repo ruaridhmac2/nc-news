@@ -41,3 +41,9 @@ export const incArticleVotes = async (article_id) => {
   const { data } = await newsApi.patch(path, { inc_votes: 1 });
   return data.updatedArticle.votes;
 };
+export const getUser = async (username) => {
+  let path = `/users/${username}`;
+  const { data } = await newsApi.get(path);
+  console.log(data.user);
+  return data.user;
+};
